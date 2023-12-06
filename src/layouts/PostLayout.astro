@@ -1,0 +1,33 @@
+---
+import "@styles/base.css";
+import { SITE } from "@config";
+import Header from "@components/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+
+export interface Props {
+    frontmatter: {
+        title: string;
+        description?: string;
+    };
+    headings: [];
+}
+const { frontmatter, headings } = Astro.props;
+---
+
+<BaseLayout title={`${frontmatter.title} | ${SITE.title}`}>
+    <Header activeNav="posts" />
+    <main>
+        <div class="sm:grid-cols-7 mywidth:grid">
+            <div class="sm:relative sm:col-span-2">
+                <TableOfContents headings={headings} />
+            </div>
+            <div class="sm:col-span-5">
+                <section id="about" class="prose mx-auto max-w-3xl px-4">
+                    <h1 class="mt-[32px]">{frontmatter.title}</h1>
+                    <slot />
+                </section>
+            </div>
+        </div>
+    </main>
+</BaseLayout>

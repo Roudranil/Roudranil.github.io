@@ -1,0 +1,57 @@
+---
+// TableOfContentsHeading.astro
+import TextLink from "./TextLink.astro";
+import "@styles/base.css";
+
+const { heading } = Astro.props;
+---
+
+<li>
+    <TextLink
+        href={"#" + heading.slug}
+        className="text-sm"
+        color="text-ctp-overlay1"
+    >
+        {heading.text}
+    </TextLink>
+    {
+        heading.subheadings.length > 0 && (
+            <ul class="my-0">
+                {heading.subheadings.map((subheading: any) => (
+                    <Astro.self heading={subheading} />
+                ))}
+            </ul>
+        )
+    }
+</li>
+
+<style>
+    li {
+        list-style-type: none;
+        margin-left: -1em;
+        margin-bottom: 0;
+        /* padding-bottom: 0; */
+        margin-top: 0px;
+        word-wrap: break-word;
+    }
+
+    li:first-child::before {
+        @apply m-0 text-lg text-ctp-overlay1 content-["\250C"] hover:text-dark-sapphire;
+    }
+
+    li:last-child::before {
+        @apply m-0 text-lg text-ctp-overlay1 content-["\2514"] hover:text-dark-sapphire;
+    }
+
+    li::before {
+        @apply m-0 text-lg text-ctp-overlay1 content-["\251C"] hover:text-dark-sapphire;
+    }
+
+    li li::before {
+        @apply m-0 text-lg text-ctp-overlay1 content-["\251C"] hover:text-dark-sapphire;
+    }
+
+    li li:last-child::before {
+        @apply m-0 text-lg text-ctp-overlay1 content-["\2514"] hover:text-dark-sapphire;
+    }
+</style>

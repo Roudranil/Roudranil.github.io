@@ -1,0 +1,23 @@
+---
+import { buildTOC } from "@utils";
+import "@styles/base.css";
+import TableOfContentsHeading from "@components/TableOfContentsHeading.astro";
+
+const { headings } = Astro.props;
+const toc = buildTOC(headings);
+---
+
+<div class="prose mywidth:fixed">
+    <div class="ml-4">
+        <h3>Table of Contents</h3>
+        <ul class="leading-tight">
+            {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
+        </ul>
+    </div>
+</div>
+
+<style>
+    h3 {
+        @apply text-darker-rosewater font-bold;
+    }
+</style>

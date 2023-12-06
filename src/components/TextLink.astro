@@ -1,0 +1,45 @@
+---
+export interface Props {
+    href: string;
+    className?: string;
+    ariaLabel?: string;
+    title?: string;
+    disabled?: boolean;
+    color?: string;
+}
+
+const {
+    href,
+    className,
+    ariaLabel,
+    title,
+    disabled = false,
+    color = "text-ctp-sapphire",
+} = Astro.props;
+console.log(className);
+---
+
+<a
+    href={disabled ? "#" : href}
+    tabindex={disabled ? "-1" : "0"}
+    class={`group inline-block link link-underline text-base ${className} ${color}`}
+    aria-label={ariaLabel}
+    title={title}
+    aria-disabled={disabled}
+>
+    <slot />
+</a>
+
+<style>
+    .link {
+        @apply font-semibold  
+        
+        underline decoration-dashed underline-offset-4 
+        
+        transition-colors duration-100 ease-out hover:text-dark-sapphire hover:no-underline;
+    }
+
+    .link-underline {
+        @apply bg-gradient-to-r from-ctp-sapphire to-dark-sapphire bg-[length:0%_3px] bg-left-bottom bg-no-repeat transition-all duration-75 ease-out hover:bg-[length:100%_2px];
+    }
+</style>

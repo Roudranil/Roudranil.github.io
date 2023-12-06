@@ -1,0 +1,125 @@
+---
+import { SITE, MENU } from "@config";
+export interface Props {
+    activeNav?: "~" | "about" | "stuff" | "projects" | "posts" | "contact";
+}
+
+const { activeNav } = Astro.props;
+---
+
+<header class="header-bar">
+    <div class="nav-container">
+        <div class="top-nav-wrap">
+            <span class="site-title flex">
+                <!-- <div class="font-mono font-semibold text-ctp-sapphire">
+                    &nbsp{activeNav}&nbsp
+                </div> -->
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 576 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+                    ></path></svg
+                >
+                <div>&nbsp</div>
+                <a class="title-underline" href="/">[{SITE.title}]</a>
+                <!-- <div class="cursor-blink"></div> -->
+            </span>
+
+            <nav>
+                <ul class="display-none sm:flex">
+                    {
+                        MENU.map((menuItem) => (
+                            <li>
+                                <a
+                                    href={menuItem.path}
+                                    class={`${
+                                        activeNav ===
+                                        menuItem.path.split("/").pop()
+                                            ? "active nav-underline"
+                                            : "navitem nav-underline"
+                                    }`}
+                                >
+                                    {menuItem.title}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<style>
+    .header-bar {
+        @apply sm:fixed sm:bg-ctp-base mywidth:w-[1024px];
+    }
+    /* Change 1024 to whatever max-w- value is */
+
+    .nav-container {
+        @apply mx-auto flex max-w-5xl flex-col items-center justify-between sm:flex-row;
+    }
+
+    .top-nav-wrap {
+        @apply relative flex w-full items-start justify-between py-4 sm:items-center sm:py-4;
+    }
+
+    .site-title {
+        @apply pl-2 text-lg
+        font-semibold text-ctp-rosewater;
+    }
+
+    .cursor-blink {
+        @apply relative top-[6px] bg-ctp-overlay1 text-xl;
+
+        width: 8px; /* Set the width of the box */
+        height: 24px; /* Set the height of the box */
+        animation: blink 1.6s infinite; /* Set the animation to make the box blink */
+        vertical-align: text-bottom; /* Set the vertical alignment to align the bottom of the box with the bottom of the text */
+    }
+
+    @keyframes blink {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+    }
+
+    /* .title-underline {
+        @apply bg-gradient-to-r from-ctp-rosewater from-10% to-dark-rosewater to-70% bg-[length:0%_3px] bg-left-bottom bg-no-repeat transition-all duration-100 ease-out hover:bg-[length:100%_3px] hover:text-dark-rosewater hover:no-underline;
+    } */
+
+    nav {
+        @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+    }
+
+    nav ul {
+        @apply mt-4 w-44 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    }
+
+    nav ul li {
+        @apply col-span-2 flex items-center justify-center;
+    }
+
+    .active {
+        @apply font-bold text-dark-rosewater;
+    }
+
+    .navitem {
+        @apply font-semibold text-ctp-rosewater;
+    }
+
+    .nav-underline {
+        @apply bg-gradient-to-r from-ctp-rosewater from-10% to-dark-rosewater to-70% bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-all duration-75 ease-out hover:bg-[length:100%_2px] hover:text-dark-rosewater hover:no-underline;
+    }
+
+    svg {
+        @apply relative top-[6.5px] h-[24px] w-[24px] fill-ctp-green;
+    }
+</style>

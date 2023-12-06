@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root,
+    body {
+        @apply
+        /* font */
+        font-sans
+         /* Colors */
+        bg-ctp-base /* background color */ 
+        text-ctp-text /* text color */
+
+        /* sizes */
+        /*  makes the screen size limited to 896 px */
+        max-w-5xl
+        min-h-screen
+        mywidth:w-[1024px]
+        /* this basically center aligns everything in the website */
+        mx-auto
+        flex
+        flex-col
+    }
+
+    main {
+        @apply mt-[80px]
+    }
+
+    a {
+        @apply font-mono;
+    }
+
+
+    .prose {
+        @apply
+
+        prose-p:text-base
+        prose-p:text-justify
+
+        prose-li:text-base
+        prose-ul:leading-tight
+    }
+
+
+    /* Scrollbar */
+    html {
+        overflow-y: scroll;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        @apply w-3;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        @apply bg-ctp-base;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        @apply bg-ctp-surface1;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-ctp-surface2;
+    }
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'LatinModern';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/lmroman10-regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LatinModern';
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/lmroman10-italic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LatinModern';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url('/fonts/lmroman10-bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LatinModernSans';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/lmsans10-regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LatinModernSans';
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/lmsans10-oblique.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LatinModernSans';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url('/fonts/lmsans10-bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'VictorMonoNerdFont';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/VictorMonoNerdFont-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VictorMonoNerdFont';
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/VictorMonoNerdFont-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VictorMonoNerdFont';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url('/fonts/VictorMonoNerdFont-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VictorMonoNerdFontMono';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/VictorMonoNerdFontMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VictorMonoNerdFontMono';
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url('/fonts/VictorMonoNerdFontMono-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VictorMonoNerdFontMono';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url('/fonts/VictorMonoNerdFontMono-Bold.ttf') format('truetype');
+}

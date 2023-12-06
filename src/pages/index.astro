@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import TextLink from "@components/TextLink.astro";
+import "@styles/base.css";
+---
+
+<BaseLayout>
+    <Header activeNav="~" />
+    <div class="title-div">
+        <h1 class="text-ctp-rosewater">Hello everyone &#x1F44B</h1>
+    </div>
+    <br />
+    <p>I am Roudranil and I am a masters student of Data Science</p>
+    <br />
+    <p>
+        I am primarily interested in all sorts of practical applications of ML
+        to solve interesting problems. Specifically I am interested in solving
+        accessibilty problems for people with disabilities with ML. Besides, I
+        have a keen interest in the audio and music domain and its intersection
+        with AI.
+    </p>
+    <br />
+    <p>
+        Feel free to look at <TextLink href="/about">~/about</TextLink> to know
+        more about me.
+    </p>
+</BaseLayout>
+
+<style>
+    .title-div {
+        @apply inline-block content-center pt-[80px] text-center text-2xl font-bold sm:text-3xl;
+    }
+
+    p {
+        @apply mx-auto my-2 max-w-2xl text-center text-base;
+    }
+</style>
