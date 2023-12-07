@@ -1,0 +1,28 @@
+---
+export interface Props {
+    title: string;
+    date: Date;
+    url: string;
+}
+const { title, date, url } = Astro.props;
+---
+
+<div class="card-container">
+    <div class="post-title">
+        {title}
+    </div>
+    <div class="post-date">
+        {date.getDate()}, {date.getMonth()}, {date.getFullYear()}
+    </div>
+    <div>{url}</div>
+</div>
+
+<style>
+    .card-container {
+        @apply my-4 rounded-md border border-ctp-teal p-4;
+    }
+
+    .post-title {
+        @apply text-lg;
+    }
+</style>

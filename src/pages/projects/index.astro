@@ -2,7 +2,16 @@
 import "@styles/base.css";
 import { SITE } from "@config";
 import Header from "@components/Header.astro";
+import Card from "@components/Card.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+const projects = await Astro.glob("./*.md");
+
+// convert date from string to date objects
+projects.forEach((p) => {
+    p.frontmatter.date = new Date(p.frontmatter.date);
+});
+projects.sort((a, b) => b.frontmatter.date - a.frontmatter.date);
 ---
 
 <BaseLayout title={`${SITE.title} | ${SITE.title}`}>
@@ -12,6 +21,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             <h1 class="my-[32px]">Projects</h1>
 
             <p>Here are some of the projects that I have done till date</p>
+            <ul>
+                {
+                    projects.map((project) => (
+                        <Card
+                            title={project.frontmatter.title}
+                            date={project.frontmatter.date}
+                            url={project.url}
+                        />
+                    ))
+                }
+            </ul>
         </section>
     </main>
 </BaseLayout>
