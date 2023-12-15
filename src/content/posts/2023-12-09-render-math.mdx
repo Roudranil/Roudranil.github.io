@@ -1,0 +1,56 @@
+---
+title: "How to render math in Astro - A detailed guide"
+description: A comprehensive guide on enabling and writing math in your markdown posts in astro (and other static site generators), using KaTeX
+date: 2023-12-09T14:19:27.901Z
+draft: false
+activeNav: posts
+shortTitle: "render-math-in-astro.md"
+headings:
+    -   depth: 2
+        slug: "starting-points"
+        text: "Starting points"
+    -   depth: 2
+        slug: "customising-katexkatexkatex"
+        text: "Customising KaTeX"
+    -   depth: 2
+        slug: "extras"
+        text: "Extras"
+---
+Pretty much the heading. This article aims to _de-mystify_ writing math in Astro for non web developers.
+
+## Starting points
+
+I believe the following blog post is a really good starting point - it goes in depth into installing the required plugins - `remark-math` and `rehype-katex`.
+
+<code class="text-base">&nbsp;</code>[Render Math in Astro Markdown Pages with
+Katex](https://ileumas.com/writing/2022/03/astro-math-katex/)
+
+$\KaTeX$ is what we are going to use to render the math from the markdown documents. On a very high level it parses everything within `$...$` or `$$...$$` in your documents and applies css styles to it. The docs are pretty detailed although it can get somewhat vague at times; check them out [here](https://katex.org/docs/browser.html).
+
+## Customising $\KaTeX$
+
+As mentioned before, $\KaTeX$ does somewhat of a poor job of explaining how to customise the styles in there docs. They outline [here](https://katex.org/docs/font) how the fonts can be customised (and you should, $\KaTeX$ fonts differ considerably from the $\LaTeX$ default - <span class="font-serif">Computer Modern Roman</span>)
+
+There is a simpler procedure:
+
+-   _Motivation_: We want to overwrite the default styles $\KaTeX$ applies, as defined in the `katex.min.css` stylesheet which we saw how to load in the previously referred link.
+-   To do this, we will load another local static stylesheet _after_ loading `katex.min.css` which redefines only those classes we want to modify.
+
+
+```html:BaseLayout.astro
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+    crossorigin="anonymous"
+/>
+<!-- Next load the local stylesheet -->
+<link rel="stylesheet" href="/styles/katex-custom.css" />
+```
+
+-   Now, **where to place this local stylesheet?** Referring the Astro docs, local stylesheets are stored in the `/public/styles/` directory. This is analogous to how you store fonts in the `/public/fonts/` directory.
+-   You can load all the custom math fonts you want, override colors and do all sorts of stuff - just have a look at the actual `katex.min.css` file to refer the name of the classes.
+
+## Extras
+
+If you want the exact $\LaTeX$ fonts, download them from [here](https://www.fontsquirrel.com/fonts/computer-modern). Load them in the `katex-custom.css` file and you are good to go!

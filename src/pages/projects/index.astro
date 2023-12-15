@@ -3,31 +3,41 @@ import "@styles/base.css";
 import { SITE } from "@config";
 import Header from "@components/Header.astro";
 import Card from "@components/Card.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const projects = await Astro.glob("./*.md");
+// const projects = await Astro.glob("./*.md");
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects", ({ data }) => {
+    return data.draft !== true;
+});
 
 // convert date from string to date objects
 projects.forEach((p) => {
-    p.frontmatter.date = new Date(p.frontmatter.date);
+    p.data.date = new Date(p.data.date);
+    p.data.activeNav = "projects";
 });
-projects.sort((a, b) => b.frontmatter.date - a.frontmatter.date);
+projects.sort((a, b) => (b.data.date as any) - (a.data.date as any));
 ---
 
-<BaseLayout title={`${SITE.title} | ${SITE.title}`}>
+<!-- 
+    This file is used to generate the index page for the projects section
+-->
+<BaseLayout title={`Projects | ${SITE.title}`}>
     <Header activeNav="projects" />
+    <Breadcrumbs />
     <main>
-        <section id="contact" class="prose mx-auto max-w-3xl px-4">
-            <h1 class="my-[32px]">Projects</h1>
+        <section id="contact" class="mx-auto max-w-3xl px-4">
+            <h1 class="page-title">Projects</h1>
 
             <p>Here are some of the projects that I have done till date</p>
             <ul>
                 {
                     projects.map((project) => (
                         <Card
-                            title={project.frontmatter.title}
-                            date={project.frontmatter.date}
-                            url={project.url}
+                            title={project.data.title}
+                            date={project.data.date}
+                            url={`/projects/${project.slug}` || "#"}
                         />
                     ))
                 }
