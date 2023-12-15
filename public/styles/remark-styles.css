@@ -1,0 +1,12 @@
+div.remark-code-title {
+    width: fit-content;
+    background-color: #1e1e2e;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    font-family: "VictorMonoNerdFont";
+    color: #b4befe; /* ctp-lavender */
+    font-style: italic;
+    font-size: smaller;
+}

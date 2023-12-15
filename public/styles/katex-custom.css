@@ -1,85 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-    :root,
-    body {
-        @apply
-        /* font */
-        font-sans
-         /* Colors */
-        bg-ctp-base /* background color */ 
-        text-ctp-text /* text color */
-
-        /* sizes */
-        /*  makes the screen size limited to 896 px */
-        max-w-5xl
-        min-h-screen
-        mywidth:w-[1024px]
-        /* this basically center aligns everything in the website */
-        mx-auto
-        flex
-        flex-col
-    }
-/* 
-    main {
-        @apply mt-[80px]
-    } */
-
-    a {
-        @apply font-mono
-    }
-
-    p {
-        @apply text-base
-    }
-
-    .page-title {
-        @apply font-bold text-2xl text-ctp-rosewater my-[32px]
-    }
-
-    .prose {
-        @apply
-
-        prose-p:text-base
-        prose-p:text-justify
-
-        prose-li:text-base
-        prose-ul:leading-tight
-
-        /* prose-code:bg-ctp-surface0 */
-        /* prose-code:border prose-code:rounded-md prose-code:border-ctp-surface0 prose-code:px-2 */
-        prose-pre:max-w-sm sm:prose-pre:max-w-4xl
-    }
-
-    /* Scrollbar */
-    html {
-        overflow-y: scroll;
-    }
-
-    /* width */
-    ::-webkit-scrollbar {
-        @apply w-3;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        @apply bg-ctp-base;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        @apply bg-ctp-surface1;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        @apply bg-ctp-surface2;
-    }
-}
-
-/* Fonts */
 /* 
 $$$$$$\  $$\      $$\        $$$$$$\                      $$\  $$$$$$\  
 $$  __$$\ $$$\    $$$ |      $$  __$$\                     \__|$$  __$$\ 
@@ -195,61 +113,154 @@ $$ |  $$\ $$ |\$  /$$ |         $$ |      $$ |
     font-weight: bold;
     src: url("/fonts/cm/cm-tt-bolditalic.ttf") format("truetype");
 }
+/* 
+$$\      $$\            $$\     $$\              $$$$$$\            $$\ 
+$$$\    $$$ |           $$ |    $$ |            $$  __$$\           $$ |
+$$$$\  $$$$ | $$$$$$\ $$$$$$\   $$$$$$$\        $$ /  \__| $$$$$$\  $$ |
+$$\$$\$$ $$ | \____$$\\_$$  _|  $$  __$$\       $$ |       \____$$\ $$ |
+$$ \$$$  $$ | $$$$$$$ | $$ |    $$ |  $$ |      $$ |       $$$$$$$ |$$ |
+$$ |\$  /$$ |$$  __$$ | $$ |$$\ $$ |  $$ |      $$ |  $$\ $$  __$$ |$$ |
+$$ | \_/ $$ |\$$$$$$$ | \$$$$  |$$ |  $$ |      \$$$$$$  |\$$$$$$$ |$$ |
+\__|     \__| \_______|  \____/ \__|  \__|       \______/  \_______|\__| */
+
+@font-face {
+    font-family: "MathCal";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("/fonts/MathCal-Regular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "MathCal";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("/fonts/MathCal-Regular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "MathCal";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("/fonts/MathCal-Bold.ttf") format("truetype")
+}
 
 /* 
-/$$    /$$ /$$             /$$                         /$$      /$$                              
-| $$   | $$|__/            | $$                        | $$$    /$$$                              
-| $$   | $$ /$$  /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$ | $$$$  /$$$$  /$$$$$$  /$$$$$$$   /$$$$$$ 
-|  $$ / $$/| $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$| $$ $$/$$ $$ /$$__  $$| $$__  $$ /$$__  $$
- \  $$ $$/ | $$| $$        | $$    | $$  \ $$| $$  \__/| $$  $$$| $$| $$  \ $$| $$  \ $$| $$  \ $$
-  \  $$$/  | $$| $$        | $$ /$$| $$  | $$| $$      | $$\  $ | $$| $$  | $$| $$  | $$| $$  | $$
-   \  $/   | $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      | $$ \/  | $$|  $$$$$$/| $$  | $$|  $$$$$$/
-    \_/    |__/ \_______/   \___/   \______/ |__/      |__/     |__/ \______/ |__/  |__/ \______/  */
+$$\      $$\            $$\     $$\             $$$$$$$$\                 $$\       
+$$$\    $$$ |           $$ |    $$ |            $$  _____|                $$ |      
+$$$$\  $$$$ | $$$$$$\ $$$$$$\   $$$$$$$\        $$ |    $$$$$$\  $$$$$$\  $$ |  $$\ 
+$$\$$\$$ $$ | \____$$\\_$$  _|  $$  __$$\       $$$$$\ $$  __$$\ \____$$\ $$ | $$  |
+$$ \$$$  $$ | $$$$$$$ | $$ |    $$ |  $$ |      $$  __|$$ |  \__|$$$$$$$ |$$$$$$  / 
+$$ |\$  /$$ |$$  __$$ | $$ |$$\ $$ |  $$ |      $$ |   $$ |     $$  __$$ |$$  _$$<  
+$$ | \_/ $$ |\$$$$$$$ | \$$$$  |$$ |  $$ |      $$ |   $$ |     \$$$$$$$ |$$ | \$$\ 
+\__|     \__| \_______|  \____/ \__|  \__|      \__|   \__|      \_______|\__|  \__| */
 
 @font-face {
-    font-family: 'VictorMonoNerdFont';
+    font-family: "MathFrak";
     font-style: normal;
     font-weight: normal;
     font-display: swap;
-    src: url('/fonts/VictorMonoNerdFont-Regular.ttf') format('truetype');
+    src: url("/fonts/MathFrak-Regular.ttf") format("truetype")
 }
 
 @font-face {
-    font-family: 'VictorMonoNerdFont';
+    font-family: "MathFrak";
     font-style: italic;
     font-weight: normal;
     font-display: swap;
-    src: url('/fonts/VictorMonoNerdFont-Italic.ttf') format('truetype');
+    src: url("/fonts/MathFrak-Regular.ttf") format("truetype")
 }
 
 @font-face {
-    font-family: 'VictorMonoNerdFont';
+    font-family: "MathFrak";
     font-style: normal;
     font-weight: bold;
     font-display: swap;
-    src: url('/fonts/VictorMonoNerdFont-Bold.ttf') format('truetype');
+    src: url("/fonts/MathFrak-Bold.ttf") format("truetype")
 }
 
-@font-face {
-    font-family: 'VictorMonoNerdFontMono';
-    font-style: normal;
-    font-weight: normal;
-    font-display: swap;
-    src: url('/fonts/VictorMonoNerdFontMono-Regular.ttf') format('truetype');
+/* 
+/$$$$$$   /$$               /$$                    
+/$$__  $$ | $$              | $$                    
+| $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$   /$$$$$$$
+|  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$ /$$_____/
+\____  $$ | $$    | $$  | $$| $$| $$$$$$$$|  $$$$$$ 
+/$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/ \____  $$
+|  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$ /$$$$$$$/
+\______/   \___/   \____  $$|__/ \_______/|_______/ 
+                   /$$  | $$                        
+                  |  $$$$$$/                        
+                   \______/                          */
+
+
+.katex {
+    text-rendering: auto;
+    font-size: 1em;
+    font-family: "ComputerModernRoman";
 }
 
-@font-face {
-    font-family: 'VictorMonoNerdFontMono';
+.katex .textrm{
+    font-family: "ComputerModernRoman"
+}
+.katex .textsf{
+    font-family: "ComputerModernSans"
+}
+.katex .texttt{
+    font-family: "ComputerModernTypewriter"
+}
+.katex .mathnormal{
+    font-family: "ComputerModernRomanItalic";
+}
+.katex .mathit{
+    font-family: "ComputerModernRoman";
+    font-style: italic
+}
+.katex .mathrm{
+    font-family: "ComputerModernRoman";
+    font-style: normal
+}
+.katex .mathbf{
+    font-family: "ComputerModernRoman";
+    font-weight: 700
+}
+.katex .boldsymbol{
+    font-family: "ComputerModernRoman";
     font-style: italic;
-    font-weight: normal;
-    font-display: swap;
-    src: url('/fonts/VictorMonoNerdFontMono-Italic.ttf') format('truetype');
+    font-weight: 700
 }
-
-@font-face {
-    font-family: 'VictorMonoNerdFontMono';
-    font-style: normal;
-    font-weight: bold;
-    font-display: swap;
-    src: url('/fonts/VictorMonoNerdFontMono-Bold.ttf') format('truetype');
+.katex .amsrm,.katex .mathbb,.katex .textbb{
+    font-family: "ComputerModernRoman"
+}
+.katex .mathcal{
+    font-family: "MathCal"
+}
+.katex .mathfrak,.katex .textfrak{
+    font-family: "MathFrak"
+}
+.katex .mathboldfrak,.katex .textboldfrak{
+    font-family: "MathFrak";
+    font-weight: 700
+}
+.katex .mathtt{
+    font-family: "ComputerModernTypewriter"
+}
+.katex .mathscr,.katex .textscr{
+    font-family: KaTeX_Script
+}
+.katex .mathsf,.katex .textsf{
+    font-family: "ComputerModernSans";
+}
+.katex .mathboldsf,.katex .textboldsf{
+    font-family: "ComputerModernSans";
+    font-weight: 700
+}
+.katex .mathitsf,.katex .textitsf{
+    font-family: "ComputerModernSans";
+    font-style: italic
+}
+.katex .mainrm{
+    font-family: "ComputerModernRoman";
+    font-style: normal
 }
