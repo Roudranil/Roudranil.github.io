@@ -8,10 +8,10 @@ Hey there! <code class="text-dark-rosewater text-lg">󱠢</code>. Thanks for dro
 
 ### Email
 
-- [roudranil@cmi.ac.in](mailto:roudranil@cmi.ac.in)
-- [dasroudranil@gmail.com](dasroudranil@gmail.com)
+- [roudranil@cmi.ac.in](mailto:roudranil@cmi.ac.in "roudranil@cmi.ac.in")
+- [dasroudranil@gmail.com](mailto:dasroudranil@gmail.com "dasroudranil@gmail.com")
 
 ### Socials
 
-- [LinkedIn](https://www.linkedin.com/in/roudranil-das/)
+- [LinkedIn](https://www.linkedin.com/in/roudranil-das/ "https://www.linkedin.com/in/roudranil-das/")
 - Discord: `methedrudy`
