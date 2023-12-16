@@ -1,7 +1,6 @@
 ---
 import { SITE } from "@config";
 import "@styles/base.css";
-import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -75,7 +74,7 @@ const {
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Get the button:
-        let mybutton = document.getElementById("scrolltotop");
+        let mybutton: HTMLElement = document.getElementById("scrolltotop")!;
 
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
