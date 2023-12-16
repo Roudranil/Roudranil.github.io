@@ -1,0 +1,41 @@
+---
+import { SOCIALS } from "@config";
+import TextLink from "./TextLink.astro";
+import icons from "@assets/socialicons";
+
+export interface Props {
+    centered?: boolean;
+}
+
+const { centered = true } = Astro.props;
+---
+
+<div class={`social-icons ${centered ? "flex" : ""}`}>
+    {
+        SOCIALS.filter((social) => social.active).map((social) => (
+            // <TextLink
+            //     href={social.href}
+            //     className="link-button"
+            //     title={social.linkTitle}
+            // >
+            //     <Fragment set:html={icons[social.name]} />
+            // </TextLink>
+            <a
+                href={social.href}
+                title={social.linkTitle}
+                class="social-link-button"
+            >
+                <Fragment set:html={icons[social.name]} />
+            </a>
+        ))
+    }
+</div>
+
+<style>
+    .social-icons {
+        @apply flex-wrap justify-center;
+    }
+    .social-link-button {
+        @apply w-[3rem] p-1 text-ctp-rosewater transition duration-[300ms] hover:text-dark-rosewater sm:p-1;
+    }
+</style>

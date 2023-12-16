@@ -27,6 +27,10 @@
         @apply mt-[80px]
     } */
 
+    svg.socialiconsvg {
+        @apply fill-current stroke-current h-[1.5em];
+    }
+
     a {
         @apply font-mono
     }
@@ -53,7 +57,7 @@
         prose-pre:max-w-sm sm:prose-pre:max-w-4xl
     }
 
-    /* Scrollbar */
+    /* ===== scrollbar ===== */
     html {
         overflow-y: scroll;
     }
@@ -70,12 +74,7 @@
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        @apply bg-ctp-surface1;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        @apply bg-ctp-surface2;
+        @apply bg-ctp-surface0 hover:bg-ctp-surface1 transition duration-100;
     }
 }
 
