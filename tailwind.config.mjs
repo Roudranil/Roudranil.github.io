@@ -13,12 +13,13 @@ export default {
                         "--tw-prose-bold": catppuccin.mocha.text.hex, // text
                         "--tw-prose-headings": catppuccin.mocha.rosewater.hex, // rosewater
                         // "--tw-prose-quotes": catppuccin.mocha.subtext0.hex, //subtext0,
-                        "--tw-prose-code": catppuccin.mocha.subtext1.hex,
+                        "--tw-prose-code": catppuccin.mocha.lavender.hex,
                         a: {
                             color: catppuccin.mocha.sapphire.hex,
+                            "font-style": "italic",
+                            "font-size": "17px", // same as mono
                             "font-weight": 600,
-                            "text-decoration-line": "underline",
-                            "text-decoration-style": "dashed",
+                            "text-decoration-line": "none",
                             "text-underline-offset": "5px",
                             "background-position": "left bottom",
                             "background-image":
@@ -39,18 +40,29 @@ export default {
                             fontSize: "36px",
                         },
                         h2: {
+                            "margin-top": "32px",
                             fontSize: "30px",
-                            "padding-top": "58px",
-                            "padding-bottom": "4px",
                         },
                         h3: {
                             fontSize: "24px",
+                        },
+                        p: {
+                            "line-height": "1.5",
+                        },
+                        pre: {
+                            "margin-top": "0px",
                         },
                         "code::before": {
                             content: "",
                         },
                         "code::after": {
                             content: "",
+                        },
+                        li: {
+                            "margin-bottom": "0",
+                            "margin-top": "8px",
+                            "word-wrap": "break-word",
+                            "line-height": "1.5",
                         },
                     },
                 },
@@ -61,6 +73,21 @@ export default {
                 "medium-rosewater": "#e0a094",
                 "dark-sapphire": "#1e9fd9",
                 "darker-rosewater": "#A6A3B1",
+                "light-base": "#404063",
+                // shades of mocha-sapphire
+                "info-titletext": "#0d455d",
+                "info-bg": catppuccin.mocha.sapphire.hex,
+                "info-accent": catppuccin.latte.sapphire.hex,
+                // "info-accent": "#92dfed",
+                // shades of mocha-red
+                "alert-titletext": "#600a22",
+                "alert-bg": catppuccin.mocha.red.hex,
+                "alert-accent": catppuccin.latte.red.hex,
+                // "alert-accent": "#f59fb7",
+                // shades of latte-pink
+                "tip-titletext": "#5c0e47",
+                "tip-bg": catppuccin.latte.pink.hex,
+                "tip-accent": "#991776",
             },
         },
         listStyleType: {
@@ -81,6 +108,7 @@ export default {
         fontSize: {
             xs: "12px",
             sm: "16px",
+            mono: "17px",
             base: "20px",
             lg: "24px",
             xl: "30px",
@@ -94,8 +122,8 @@ export default {
             "9xl": "128px",
         },
         fontFamily: {
-            sans: ["LatinModernSans", ...defaultTheme.fontFamily.sans],
-            serif: ["LatinModern", ...defaultTheme.fontFamily.serif],
+            sans: ["ComputerModernSans", ...defaultTheme.fontFamily.sans],
+            serif: ["ComputerModernRoman", ...defaultTheme.fontFamily.serif],
             mono: ["VictorMonoNerdFont", ...defaultTheme.fontFamily.mono],
         },
     },
