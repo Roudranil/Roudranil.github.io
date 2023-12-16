@@ -15,7 +15,6 @@ type Props = {
 
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
-console.log(headings);
 ---
 
 <PostLayout frontmatter={entry.data} headings={headings}>
