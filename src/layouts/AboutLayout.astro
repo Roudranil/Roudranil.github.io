@@ -4,6 +4,7 @@ import { SITE } from "@config";
 import Header from "@components/Header.astro";
 import BaseLayout from "./BaseLayout.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 export interface Props {
     frontmatter: {
@@ -17,6 +18,7 @@ const { frontmatter, headings } = Astro.props;
 
 <BaseLayout title={`${frontmatter.title} | ${SITE.title}`}>
     <Header activeNav="about" />
+    <Breadcrumbs />
     <main>
         <div class="sm:grid-cols-7 mywidth:grid">
             <div class="sm:relative sm:col-span-2">
@@ -24,7 +26,7 @@ const { frontmatter, headings } = Astro.props;
             </div>
             <div class="sm:col-span-5">
                 <section id="about" class="prose mx-auto max-w-3xl px-4">
-                    <h1 class="mt-[32px]">About me</h1>
+                    <h1 class="my-[32px]">About me</h1>
                     <slot />
                 </section>
             </div>
