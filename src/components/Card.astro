@@ -1,28 +1,50 @@
 ---
+import TextLink from "./TextLink.astro";
 export interface Props {
     title: string;
     date: Date;
     url: string;
 }
+
+const dateOptions: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+};
+
 const { title, date, url } = Astro.props;
 ---
 
-<div class="card-container">
-    <div class="post-title">
-        {title}
+<a href={url}>
+    <div class="card-container">
+        <div class="post-title flex justify-start">
+            <code>&nbsp;</code><div>{title}</div>
+        </div>
+        <div class="post-date">
+            &nbsp;&nbsp;&nbsp;<code>&nbsp;&nbsp;</code>{
+                date.toLocaleDateString(undefined, dateOptions)
+            }
+        </div>
     </div>
-    <div class="post-date">
-        {date.getDate()}, {date.getMonth()}, {date.getFullYear()}
-    </div>
-    <div>{url}</div>
-</div>
+</a>
 
 <style>
     .card-container {
-        @apply my-4 rounded-md border border-ctp-teal p-4;
+        @apply my-2 rounded-xl
+        border-2 border-transparent p-2
+
+        text-ctp-rosewater
+        transition-all
+        duration-200
+        hover:border-ctp-sapphire hover:text-ctp-sapphire
+        md:w-[768px];
     }
 
     .post-title {
-        @apply text-lg;
+        @apply text-base;
+    }
+
+    .post-date {
+        @apply text-sm italic;
     }
 </style>

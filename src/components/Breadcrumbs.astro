@@ -1,0 +1,47 @@
+---
+const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+const breadcrumbList = currentUrlPath.split("/").slice(1);
+export interface Props {
+    shortTitle?: string;
+}
+const { shortTitle = breadcrumbList[breadcrumbList.length - 1] } = Astro.props;
+---
+
+<nav class="breadcrumb" aria-level="breadcrumb">
+    <ul>
+        <li>
+            <a class="bc-item" href="/" title="home">~</a>
+        </li>
+        {
+            breadcrumbList.map((b, i) =>
+                i + 1 === breadcrumbList.length ? (
+                    <li>
+                        <span class="bc-item" aria-current="page">
+                            /&nbsp;{shortTitle}
+                        </span>
+                    </li>
+                ) : (
+                    <li>
+                        <a
+                            class="bc-item"
+                            href={
+                                "/" + breadcrumbList.slice(0, i + 1).join("/")
+                            }
+                        >
+                            /&nbsp;{b}
+                        </a>
+                    </li>
+                ),
+            )
+        }
+    </ul>
+</nav>
+
+<style>
+    ul li {
+        @apply inline;
+    }
+    .bc-item {
+        @apply font-mono text-sm text-ctp-overlay2 opacity-70 hover:font-bold hover:opacity-100;
+    }
+</style>

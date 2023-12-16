@@ -6,6 +6,7 @@ export interface Props {
     title?: string;
     disabled?: boolean;
     color?: string;
+    underline?: string;
 }
 
 const {
@@ -14,14 +15,18 @@ const {
     ariaLabel,
     title,
     disabled = false,
+    underline = "false",
     color = "text-ctp-sapphire",
 } = Astro.props;
+
+const underlineClasses =
+    underline == "true" ? "underline underline-offset-[5px]" : "";
 ---
 
 <a
     href={disabled ? "#" : href}
     tabindex={disabled ? "-1" : "0"}
-    class={`group inline-block link link-underline text-base ${className} ${color}`}
+    class={`group inline-block link link-underline text-mono ${className} ${color} ${underlineClasses}`}
     aria-label={ariaLabel}
     title={title}
     aria-disabled={disabled}
@@ -31,11 +36,9 @@ const {
 
 <style>
     .link {
-        @apply font-semibold  
-        
-        underline decoration-dashed underline-offset-4 
-        
+        @apply font-semibold italic
         transition-colors duration-100 ease-out hover:text-dark-sapphire hover:no-underline;
+        /* underline underline-offset-[5px]  */
     }
 
     .link-underline {

@@ -9,7 +9,7 @@ const toc = buildTOC(headings);
 
 <div class="prose mywidth:fixed">
     <div class="ml-4">
-        <h3>Table of Contents</h3>
+        <h3 class="text-base">Table of Contents</h3>
         <ul class="leading-tight">
             {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
         </ul>
@@ -18,6 +18,6 @@ const toc = buildTOC(headings);
 
 <style>
     h3 {
-        @apply text-darker-rosewater font-bold;
+        @apply font-bold text-darker-rosewater;
     }
 </style>

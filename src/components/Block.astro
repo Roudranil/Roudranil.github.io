@@ -1,0 +1,75 @@
+---
+import "@styles/base.css";
+
+export interface Props {
+    type: "info" | "alert" | "tip" | "normal";
+}
+const { type } = Astro.props;
+
+const titles = {
+    info: {
+        symbol: "   ",
+        text: "Information",
+        bg: "bg-info-bg",
+        accent: "border-l-info-accent",
+        titletext: "text-info-titletext",
+    },
+    alert: {
+        symbol: "   ",
+        text: "Warning",
+        bg: "bg-alert-bg",
+        accent: "border-l-alert-accent",
+        titletext: "text-alert-titletext",
+    },
+    tip: {
+        symbol: "󱐌",
+        text: "Tip",
+        bg: "bg-tip-bg",
+        accent: "border-l-tip-accent",
+        titletext: "text-tip-titletext",
+    },
+    normal: {
+        symbol: "",
+        text: "",
+        bg: "bg-ctp-base",
+        accent: "border-l-ctp-subtext1",
+        titletext: "",
+    },
+} as Record<
+    string,
+    {
+        symbol: string;
+        text: string;
+        bg: string;
+        accent: string;
+        titletext: string;
+    }
+>;
+---
+
+<div
+    id="Block"
+    class=`${titles[type].bg} ${titles[type].accent} my-8 rounded-md border-l-8 border-transparent`
+>
+    <p class=`block-title ${titles[type].titletext}`>
+        <span class="font-mono">{titles[type].symbol}</span>
+        <span class="font-bold">{titles[type].text}</span>
+    </p>
+    <p
+        class={`text ${
+            type === "normal" ? "text-ctp-text" : "text-ctp-mantle"
+        }`}
+    >
+        <slot />
+    </p>
+</div>
+
+<style>
+    .block-title {
+        @apply m-0 mb-2 p-4 pb-0 text-lg;
+    }
+
+    .text {
+        @apply m-0 p-4 pt-0;
+    }
+</style>
