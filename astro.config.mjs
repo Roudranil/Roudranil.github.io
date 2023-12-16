@@ -10,6 +10,8 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+    site: "https://roudranil.github.io",
+    // base: "/roudranil.github.io",
     markdown: {
         remarkPlugins: [remarkMath, remarkCodeTitles],
         rehypePlugins: [rehypeKatex],

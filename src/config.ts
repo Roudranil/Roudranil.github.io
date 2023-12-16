@@ -1,7 +1,7 @@
 import type { Site, MenuItem, SocialObjects } from "types";
 
 export const SITE: Site = {
-    website: "",
+    website: "https://roudranil.github.io",
     author: "Roudranil Das",
     desc: "My portfolio",
     title: "rudy",
