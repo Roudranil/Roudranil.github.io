@@ -3,8 +3,9 @@ div.remark-code-title {
     background-color: #1e1e2e;
     padding-left: 16px;
     padding-right: 16px;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+    border-width: 2px;
+    border-radius: 1rem;
+    border-color: #313244; /* ctp surface0 */
     font-family: "VictorMonoNerdFont";
     color: #b4befe; /* ctp-lavender */
     font-style: italic;
