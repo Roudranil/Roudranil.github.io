@@ -49,14 +49,41 @@ export default {
                         p: {
                             "line-height": "1.5",
                         },
-                        pre: {
-                            "margin-top": "0px",
-                        },
                         "code::before": {
                             content: "",
                         },
                         "code::after": {
                             content: "",
+                        },
+                        pre: {
+                            "border-width": "2px",
+                            "border-color": catppuccin.mocha.surface0.hex,
+                            "border-radius": "1rem",
+                            "margin-top": "0",
+                            // "border-top-left-radius": "0",
+                        },
+                        "pre::-webkit-scrollbar": {
+                            width: "0",
+                        },
+                        table: {
+                            margin: "auto",
+                            "border-collapse": "collapse",
+                            width: "auto",
+                        },
+                        "th, td": {
+                            padding: "8px 12px",
+                            "text-align": "center",
+                            "border-right-width": "1px",
+                            "border-right-color": catppuccin.mocha.surface0.hex,
+                            "border-bottom-width": "1px",
+                            "border-bottom-color":
+                                catppuccin.mocha.surface0.hex,
+                        },
+                        "th:last-child, td:last-child": {
+                            "border-right": "none",
+                        },
+                        "tr:last-child th, tr:last-child td": {
+                            "border-bottom": "none",
                         },
                         li: {
                             "margin-bottom": "0",
