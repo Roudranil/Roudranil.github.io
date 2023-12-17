@@ -15,7 +15,6 @@ const posts = await getCollection("posts", ({ data }) => {
 // convert date from string to date objects
 posts.forEach((p) => {
     p.data.date = new Date(p.data.date);
-    p.data.activeNav = "posts";
 });
 posts.sort((a, b) => (b.data.date as any) - (a.data.date as any));
 ---

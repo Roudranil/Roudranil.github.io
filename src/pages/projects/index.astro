@@ -15,7 +15,6 @@ const projects = await getCollection("projects", ({ data }) => {
 // convert date from string to date objects
 projects.forEach((p) => {
     p.data.date = new Date(p.data.date);
-    p.data.activeNav = "projects";
 });
 projects.sort((a, b) => (b.data.date as any) - (a.data.date as any));
 ---
