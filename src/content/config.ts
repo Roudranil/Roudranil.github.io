@@ -70,6 +70,7 @@ const projectsCollection = defineCollection({
             "posts",
             "contact",
         ]),
+        github: z.string().optional(),
         shortTitle: z.string().optional(),
         headings: z
             .array(

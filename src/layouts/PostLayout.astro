@@ -21,6 +21,7 @@ export interface Props {
         activeNav: "~" | "about" | "stuff" | "projects" | "posts" | "contact";
         shortTitle?: string;
         headings?: { depth: number; slug: string; text: string }[];
+        github?: string;
     };
     headings: MarkdownHeading[];
 }
@@ -45,51 +46,54 @@ frontmatter.date = new Date(frontmatter.date);
 >
     <Header activeNav={frontmatter.activeNav} />
     <Breadcrumbs shortTitle={frontmatter.shortTitle} />
-    <main>
-        <div class="sm:grid-cols-7 mywidth:grid">
+    <main class="mywidth:grid">
+        <div class="grid gap-4 sm:grid-cols-7">
             {/* Render TableOfContents or empty span based on headings */}
-            {
-                headings.length > 0 ? (
-                    <>
-                        <div class="sm:relative sm:col-span-2">
+            <div class="sm:col-span-2">
+                {
+                    headings.length > 0 ? (
+                        <div class="relative">
                             <TableOfContents headings={headings} />
                         </div>
-                        <div class="sm:col-span-5">
-                            {/* Your content here */}
-                            <section
-                                id="about"
-                                class="prose mx-auto max-w-3xl px-4"
-                            >
-                                <h1 class="my-[32px]">{frontmatter.title}</h1>
-                                <h5>
-                                    {frontmatter.date.toLocaleDateString(
-                                        undefined,
-                                        dateOptions,
-                                    )}
-                                </h5>
-                                <slot />
-                            </section>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <div class="sm:col-span-2">
-                            {/* Empty span to maintain the column */}
-                            <span />
-                        </div>
-                        <div class="sm:col-span-5">
-                            {/* Your content here */}
-                            <section
-                                id="about"
-                                class="prose mx-auto max-w-3xl px-4"
-                            >
-                                <h1 class="my-[32px]">{frontmatter.title}</h1>
-                                <slot />
-                            </section>
-                        </div>
-                    </>
-                )
-            }
+                    ) : (
+                        <span />
+                    )
+                }
+            </div>
+
+            <div class="sm:col-span-5">
+                {/* Your content here */}
+                <section id="about" class="prose mx-auto max-w-3xl px-4">
+                    <h1 class="my-[32px]">{frontmatter.title}</h1>
+                    <div class="flex items-center">
+                        <h5>
+                            {
+                                frontmatter.date.toLocaleDateString(
+                                    undefined,
+                                    dateOptions,
+                                )
+                            }
+                        </h5>
+                        {
+                            frontmatter.github && (
+                                <>
+                                    &nbsp;{" | "}&nbsp; {/* Separator */}
+                                    <div class="rounded-3xl border border-transparent bg-ctp-surface1 px-3 text-ctp-lavender transition duration-100 hover:bg-ctp-surface0 hover:text-dark-sapphire">
+                                        <a
+                                            href={frontmatter.github}
+                                            title={frontmatter.github}
+                                            class="not-prose"
+                                        >
+                                            &nbsp;Github
+                                        </a>
+                                    </div>
+                                </>
+                            )
+                        }
+                    </div>
+                    <slot />
+                </section>
+            </div>
         </div>
     </main>
 </BaseLayout>
