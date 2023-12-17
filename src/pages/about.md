@@ -48,4 +48,4 @@ Besides I also dabbled in theoretical computer science which I got to explore mo
 
 ## Resume
 
-View my resume [here](resume/roudranil-resume.pdf).
+View my resume [here](/resume/roudranil-resume.pdf).
