@@ -5,6 +5,7 @@ import Header from "@components/Header.astro";
 import BaseLayout from "./BaseLayout.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import GithubLink from "@components/GithubLink.astro";
 import type { MarkdownHeading } from "astro";
 
 // Basically there may be cases where i would want the heading text to be something else in the toc
@@ -62,7 +63,6 @@ frontmatter.date = new Date(frontmatter.date);
             </div>
 
             <div class="sm:col-span-5">
-                {/* Your content here */}
                 <section id="about" class="prose mx-auto max-w-3xl px-4">
                     <h1 class="my-[32px]">{frontmatter.title}</h1>
                     <div class="flex items-center">
@@ -78,15 +78,9 @@ frontmatter.date = new Date(frontmatter.date);
                             frontmatter.github && (
                                 <>
                                     &nbsp;{" | "}&nbsp; {/* Separator */}
-                                    <div class="rounded-3xl border border-transparent bg-ctp-surface1 px-3 text-ctp-lavender transition duration-100 hover:bg-ctp-surface0 hover:text-dark-sapphire">
-                                        <a
-                                            href={frontmatter.github}
-                                            title={frontmatter.github}
-                                            class="not-prose"
-                                        >
-                                            &nbsp;Github
-                                        </a>
-                                    </div>
+                                    <GithubLink
+                                        githubURL={frontmatter.github}
+                                    />
                                 </>
                             )
                         }
