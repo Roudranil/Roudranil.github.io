@@ -6,16 +6,17 @@ draft: false
 activeNav: posts
 shortTitle: "render-math-in-astro.md"
 headings:
-    -   depth: 2
-        slug: "starting-points"
-        text: "Starting points"
-    -   depth: 2
-        slug: "customising-katexkatexkatex"
-        text: "Customising KaTeX"
-    -   depth: 2
-        slug: "extras"
-        text: "Extras"
+    - depth: 2
+      slug: "starting-points"
+      text: "Starting points"
+    - depth: 2
+      slug: "customising-katexkatexkatex"
+      text: "Customising KaTeX"
+    - depth: 2
+      slug: "extras"
+      text: "Extras"
 ---
+
 Pretty much the heading. This article aims to _de-mystify_ writing math in Astro for non web developers.
 
 ## Starting points
@@ -35,7 +36,6 @@ There is a simpler procedure:
 
 -   _Motivation_: We want to overwrite the default styles $\KaTeX$ applies, as defined in the `katex.min.css` stylesheet which we saw how to load in the previously referred link.
 -   To do this, we will load another local static stylesheet _after_ loading `katex.min.css` which redefines only those classes we want to modify.
-
 
 ```html:BaseLayout.astro
 <link

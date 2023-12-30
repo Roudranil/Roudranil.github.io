@@ -1,0 +1,68 @@
+---
+title: "Some of my other projects"
+description: "This page contains some of my other projects that I have worked on till now"
+date: 2023-12-30T16:34:47.339Z
+activeNav: "projects"
+draft: false
+shortTitle: "other-projects.md"
+headings:
+    - depth: 2
+      slug: "function-calling-with-openai-and-open-source-llms"
+      text: "Function calling with LLM's"
+    - depth: 2
+      slug: "building-a-4-gram-language-model-and-building-word-vectors"
+      text: "4-gram LM and word vectors"
+---
+
+import GithubLink from "../../components/GithubLink.astro";
+
+I have also been working on some other small projects recently. Here is a small
+overview of those projects.
+
+## Function Calling with `openai` and open-source LLM's
+
+_Dec 2023_
+
+<GithubLink githubURL="https://github.com/Roudranil/function-calling-with-openai-and-oss-llm" />
+
+This project was actually the result of an assignment. So the goal here was to
+scrape data from a website and convert that to structured data by passing it as
+an input to the API call of some LLM without using some external framework like
+`instructor`, `langchain`, `llamaindex` or the others.
+
+I took heavy inspiration from [ instructor](https://github.com/jxnl/instructor)'s implementation of function calling, especially
+their implementation of the Pydantic schema and the wrapper around chat
+completion response from the `openai` package. However, having no prior
+experience in dealing with these frameworks - I soon ran into some issues -
+except OpenAI's GPT series models, no other open source models on the endpoints
+I was using actually supported function calling.
+
+Hence improvisation - I resorted to provide structured output definitions in the
+prompts themselves and trying out the results. Here I observed that while Llama2
+and Mistral-chat models were not really returning the exact structured output
+that can be parsed without any hitches into a pydantic object, they were
+actually providing the correct outputs - but with some additional text (like,
+"here is your solution .... ").
+
+Although I did find one model which provided exact output that was parsed easily
+from just prompts. All in all, a really fun short experiment.
+
+## Building a 4-gram language model and building word vectors
+
+_Aug 2023 - Nov 2023_
+
+<GithubLink githubURL="https://github.com/Roudranil/n-gram-lm-and-word-vectors" />
+
+So this was a small academic project in which I delve into the creation of a language model (LM)
+and word vectors using a downsized version of the English-Wikipedia corpus. The primary goals are
+to construct an n-gram language model and generate word vectors from this corpus. There are 3 primary
+subparts of this project.
+
+-   The first part is cleaning and tokenization of the corpus. The tokenization was
+    done with the sentencepiece tokenizer (which is a subword tokenizer). Empirical laws such as Zipf's
+    Law as also verified in the process.
+-   Moving forward, I build a simple 4-gram probabilistic language model with next
+    word prediction and sentence generation capabilities. Another thing that I
+    attempted to do was perform next word prediction conditioned on PoS tags.
+-   The final part focusses on training the word vectors based on **Co-occurance
+    Analogue to Lexical Semantics** or COALS.
