@@ -2,6 +2,7 @@
 import { SITE } from "@config";
 import "@styles/base.css";
 import Footer from "@components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -9,12 +10,14 @@ export interface Props {
     title?: string;
     author?: string;
     description?: string;
+    canonicalURL?: string;
 }
 
 const {
     title = SITE.title,
     author = SITE.author,
     description = SITE.desc,
+    canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 ---
 
@@ -25,6 +28,7 @@ const {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <link rel="canonical" href={canonicalURL} />
         <meta name="generator" content={Astro.generator} />
 
         <!-- Meta tags for SEO -->
@@ -55,6 +59,20 @@ const {
         <link rel="stylesheet" href="/styles/loadfonts.css" />
         <link rel="stylesheet" href="/styles/remark-styles.css" />
         <link rel="stylesheet" href="/styles/miscellaneous-styles.css" />
+
+        {
+            // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
+            // include google-site-verification tag in the heading
+            // Learn more: https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag
+            googleSiteVerification && (
+                <meta
+                    name="google-site-verification"
+                    content={googleSiteVerification}
+                />
+            )
+        }
+
+        <ViewTransitions />
     </head>
     <body>
         <slot />
@@ -62,50 +80,52 @@ const {
             >^</button
         >
         <Footer />
+        <style>
+            #scrolltotop {
+                @apply fixed bottom-5 right-7 z-[99] hidden h-16 cursor-pointer rounded-2xl border border-none bg-ctp-surface1 p-2 text-xl text-ctp-red opacity-75 outline-none transition duration-200 hover:bg-ctp-surface0 hover:text-ctp-sapphire sm:text-4xl;
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Get the button:
+                let mybutton: HTMLElement =
+                    document.getElementById("scrolltotop")!;
+
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () {
+                    scrollFunction();
+                };
+
+                function scrollFunction() {
+                    if (
+                        document.body.scrollTop > 20 ||
+                        document.documentElement.scrollTop > 20
+                    ) {
+                        mybutton.style.display = "block";
+                    } else {
+                        mybutton.style.display = "none";
+                    }
+                }
+
+                // When the user clicks on the button, scroll to the top of the document
+                mybutton.onclick = function () {
+                    topFunction();
+                };
+
+                function topFunction() {
+                    const currentScroll =
+                        document.documentElement.scrollTop ||
+                        document.body.scrollTop;
+
+                    if (currentScroll > 0) {
+                        // Smoothly scroll to the top
+                        window.requestAnimationFrame(topFunction);
+                        window.scrollTo(0, currentScroll - currentScroll / 8);
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
 
-<style>
-    #scrolltotop {
-        @apply fixed bottom-5 right-7 z-[99] hidden h-16 cursor-pointer rounded-2xl border border-none bg-ctp-surface1 p-2 text-xl text-ctp-red opacity-75 outline-none transition duration-200 hover:bg-ctp-surface0 hover:text-ctp-sapphire sm:text-4xl;
-    }
-</style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get the button:
-        let mybutton: HTMLElement = document.getElementById("scrolltotop")!;
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-            if (
-                document.body.scrollTop > 20 ||
-                document.documentElement.scrollTop > 20
-            ) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        mybutton.onclick = function () {
-            topFunction();
-        };
-
-        function topFunction() {
-            const currentScroll =
-                document.documentElement.scrollTop || document.body.scrollTop;
-
-            if (currentScroll > 0) {
-                // Smoothly scroll to the top
-                window.requestAnimationFrame(topFunction);
-                window.scrollTo(0, currentScroll - currentScroll / 8);
-            }
-        }
-    });
-</script>

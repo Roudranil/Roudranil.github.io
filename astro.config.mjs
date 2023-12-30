@@ -5,8 +5,9 @@ import remarkCodeTitles from "remark-code-titles";
 
 import tailwind from "@astrojs/tailwind";
 import catppuccinMocha from "./catppuccin-mocha.json";
-
 import mdx from "@astrojs/mdx";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,5 +20,6 @@ export default defineConfig({
             theme: catppuccinMocha,
         },
     },
-    integrations: [tailwind(), mdx()],
+    integrations: [tailwind(), mdx(), sitemap()],
 });
+
