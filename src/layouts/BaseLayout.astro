@@ -72,6 +72,23 @@ const {
             )
         }
 
+        <!-- Enabling google analytics -->
+        <!-- Google tag (gtag.js) -->
+        <script
+            type="text/partytown"
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-REHV5RW6LZ"
+        ></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-REHV5RW6LZ");
+        </script>
+
         <ViewTransitions />
     </head>
     <body>
@@ -128,4 +145,3 @@ const {
         </script>
     </body>
 </html>
-

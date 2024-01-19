@@ -6,6 +6,7 @@ import remarkCodeTitles from "remark-code-titles";
 import tailwind from "@astrojs/tailwind";
 import catppuccinMocha from "./catppuccin-mocha.json";
 import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -20,6 +21,14 @@ export default defineConfig({
             theme: catppuccinMocha,
         },
     },
-    integrations: [tailwind(), mdx(), sitemap()],
+    integrations: [
+        tailwind(),
+        mdx(),
+        sitemap(),
+        partytown({
+            config: {
+                forward: ["dataLayer.push"],
+            },
+        }),
+    ],
 });
-
