@@ -6,13 +6,11 @@ description: "this page contains information about me"
 
 ## Introduction
 
-I am Roudranil Das, a masters student of data science at the **Chennai Mathematical Institute**. I did my bachelors in mathematics from the **St. Xavier's College, Kolkata**.
+Hey there! I'm Roudranil Das, a master's student of data science at the Chennai Mathematical Institute. I completed my bachelor's in mathematics from St. Xavier's College, Kolkata. Currently, I am working as a data scientist in the Data Science and Innovation team at Kantar Analytics Practice.
 
-I am primarily interested in all sorts of practical applications of ML to solve interesting problems. Specifically I am interested in solving accessibilty problems for people with disabilities with ML. Besides, I have a keen interest in the audio and music domain and its intersection with AI.
+I am primarily interested in all sorts of practical applications of ML to solve interesting problems, specifically in solving accessibility problems for people with disabilities using ML. I also have a keen interest in the audio and music domain and its intersection with AI.
 
-Besides I am also a musician! I have been playing the mandolin for the past 6 years now, with specialities in Bengali folk music and retro songs. I also play the banjo and the melodica.
-
-I am an open source enthusiast and a hobbyist linux user. Click [here](/stuff) to view all my nerdy stuff (WIP!).
+Besides my professional interests, I'm a musician and have been playing the mandolin for the past 6 years, specializing in Bengali folk music and retro songs. I also play the banjo and the melodica. As an open-source enthusiast and hobbyist Linux user, I enjoy tinkering with my Linux rice. Click [here](/stuff) to view all my nerdy stuff (WIP!).
 
 ## Coursework
 
@@ -26,14 +24,20 @@ During my undergraduate, I took courses in
 
 Besides I also dabbled in theoretical computer science which I got to explore more during my postgraduate degree. Here the newer courses which I took were
 
--   Statistics and Visualisation with R
--   Database Management Systems
+-   Programming and Data structures with Python
+-   Probability and Statistics with R
+-   RDBMS and SQL
+-   Visualisation with R
 -   Data Mining and Machine Learning
 -   Design and Analysis of Algorithms
--   Big Data and Distributed Computing
--   Advanced Machine Learning Techniques
+-   Big Data and and Distributed Computing
+-   Advanced Machine Learning
 -   Natural Language Processing
--   Regression Analysis
+-   Regression analysis
+-   MlOps
+-   Intro to GenerativeAI
+-   Data privacy and ethical AI
+-   Computer Vision
 
 ## Awards and Achievements
 
