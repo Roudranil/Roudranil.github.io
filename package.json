@@ -8,7 +8,8 @@
         "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "sync-resume": "chmod +x scripts/sync-resume.sh && bash scripts/sync-resume.sh"
+        "sync-resume": "chmod +x scripts/sync-resume.sh && bash scripts/sync-resume.sh",
+        "create": "bash scripts/create.sh --"
     },
     "dependencies": {
         "@astrojs/check": "^0.3.2",
